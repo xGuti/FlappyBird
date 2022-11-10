@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] float _jumpForce;
     private Rigidbody2D _rb;
@@ -17,5 +17,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             _rb.velocity = new Vector2(0, _jumpForce);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
     }
 }

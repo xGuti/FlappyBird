@@ -8,12 +8,6 @@ public class PipeSpawner : MonoBehaviour
     private float _timeToSpawn = 3f;
     public GameObject _pipePrefab;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
