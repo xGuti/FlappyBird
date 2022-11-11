@@ -7,6 +7,13 @@ public class MenuScript : MonoBehaviour
 {
     public void Play()
     {
+        Debug.Log("playbtn");
         SceneManager.LoadScene(1);
+    }
+
+    public void Exit()
+    {
+        Debug.Log("exitbtn");
+        Application.Quit();
     }
 }

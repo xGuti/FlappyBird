@@ -14,6 +14,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    public static void LevelUp()
+    {
+        int score = ScoreScript.GetScore();
+        if (score < 25 && score % 5 == 0)
+            PipeSpawner.ReduceSpawningTime(0.5f);
+
+        if (score % 10 == 0)
+            PipeMovement.AddSpeed(.1f);
+    }
+
     public void Play()
     {
         _insCanvas.SetActive(false);

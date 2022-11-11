@@ -5,19 +5,27 @@ using UnityEngine;
 public class PipeSpawner : MonoBehaviour
 {
     private float _spawnHeight = 2f;
-    private float _timeToSpawn = 3f;
     public GameObject _pipePrefab;
 
-    // Update is called once per frame
+    private static float _timeToSpawn = 5f;
+    private float _timer = 0f;
+    
     void FixedUpdate()
     {
-        if (_timeToSpawn <= 0)
+        //spawning
+        if (_timer >= _timeToSpawn)
         {
-            _timeToSpawn = 3;
+            _timer = 0;
             GameObject newPipe = Instantiate(_pipePrefab);
             newPipe.transform.position = transform.position + new Vector3(0, Random.Range(-_spawnHeight, _spawnHeight) + 1, 0);
             Destroy(newPipe, 10f);
         }
-        _timeToSpawn -= Time.deltaTime;
+
+        _timer += Time.deltaTime;
+    }
+
+    public static void ReduceSpawningTime(float value)
+    {
+        _timeToSpawn -= value;
     }
 }

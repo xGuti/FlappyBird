@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PipeMovement : MonoBehaviour
 {
-    [SerializeField] float _speed;
+    [SerializeField] static float _speed = 2f;
 
     // Update is called once per frame
     void Update()
@@ -12,8 +12,8 @@ public class PipeMovement : MonoBehaviour
         transform.position += Vector3.left * _speed * Time.deltaTime;
     }
 
-    public void SetSpeed(float value)
+    public static void AddSpeed(float value)
     {
-        _speed = value;
+        _speed += value;
     }
 }
