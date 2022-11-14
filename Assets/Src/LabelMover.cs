@@ -8,7 +8,7 @@ public class LabelMover : MonoBehaviour
 
     private void Start()
     {
-        transform.position = new Vector3(0, 2.75f, 0);
+        transform.position = new Vector3(0, 3f, 0);
         _direction = 1;
     }
 
